@@ -47,3 +47,27 @@ window.onscroll = () => {
 
     footer.classList.toggle('show-animate', this.innerHeight + this.scrollY >= document.scrollingElement.scrollHeight);
 }
+
+
+
+//Pointer Effect
+
+const fireContainer = document.createElement("div")
+  fireContainer.className = "fire-container";
+  document.body.appendChild(fireContainer);
+
+document.addEventListener("mousemove",function (e){
+  createFire(e.clientX,e.clientY);
+});
+
+const createFire = (x,y) =>{
+  const fire = document.createElement("div");
+  fire.className ="fire";
+  fire.style.left = x+ "px";
+  fire.style.top= y +"px";  
+  fireContainer.appendChild(fire);
+
+  setTimeout(()=>{
+    fire.remove();
+  },500)
+}
